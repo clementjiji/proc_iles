@@ -5,7 +5,11 @@ struct habitant* creation_habitant(char* nom, int suffixe) {
     h->age = rand()%50;
     sprintf(h->nom, "%d", suffixe);
     strcat(h->nom,nom);
-    h->revenu = revenu_min + ((float)rand()/(float)RAND_MAX)*(float)(revenu_max-revenu_min);
+    if (h->age >= 18) {
+        h->revenu = revenu_min + ((float)rand()/(float)RAND_MAX)*(float)(revenu_max-revenu_min);
+    } else {
+        h->revenu = 0.0;
+    }
     return h;
 }
 
