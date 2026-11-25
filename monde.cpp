@@ -79,8 +79,16 @@ void affichage_habitant(struct habitant* h) {
     cout << h->nom << " \t" << h->age << " ans \t(" << h->revenu << "€)"; 
 }
 
+void liberer_habitant(struct ile* ile) {
+    for (int i = 0; i < ile->nb_hab; i++) {
+        free(ile->liste_hab[i]);
+    }
+    free(ile->liste_hab);
+}
+
 void liberer_monde(struct monde** m){
     for (int i=0; i<(*m)->nb_iles; i++) {
+        liberer_habitant((*m)->mes_iles[i]);
         free((*m)->mes_iles[i]);
         (*m)->mes_iles[i] = NULL;
     }

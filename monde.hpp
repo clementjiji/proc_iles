@@ -45,6 +45,8 @@ void affichage_ile(struct ile* ile);
 
 void affichage_habitant(struct habitant* h);
 
+void liberer_habitant(struct ile* ile);
+
 void liberer_monde(struct monde** m);
 
 #endif
