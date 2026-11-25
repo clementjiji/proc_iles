@@ -49,4 +49,8 @@ void liberer_habitant(struct ile* ile);
 
 void liberer_monde(struct monde** m);
 
+int proprio(int i, int nb_procs);
+
+void local(int i, int rang, int nb_procs);
+
 #endif
