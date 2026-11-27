@@ -1,5 +1,14 @@
 #include "niv1.hpp"
 
+
+void generer_habitants(struct ile* ile) {
+    ile->liste_hab = (struct habitant**)malloc(ile->nb_hab * sizeof(struct habitant*));
+    for (int j = 0; j < ile->nb_hab; j++) {
+        ile->liste_hab[j] = creation_habitant(ile->nom, j);
+    }
+    maj_gini(ile);
+}
+
 void vieillir(struct ile* ile) {
     for (int i = 0; i < ile -> nb_hab; i++) {
        ile -> liste_hab[i] -> age++;
